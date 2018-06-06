@@ -4,6 +4,7 @@ class SongsController < ApplicationController
   end
 def create
   @song=Song.new(params.require(:song).permit(:artist_name,:genre,:title,:released,:release_year))
+  binding.pry
   if @song.valid?
     @song.save
     redirect_to @song
